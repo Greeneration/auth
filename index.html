@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<title>Sign-in</title>
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, sans-serif; max-width: 34rem; margin: 4rem auto; padding: 0 1rem; color: #222; background: #fff; line-height: 1.5; }
+  a { color: #2a6f3a; }
+</style>
+</head>
+<body>
+<h1>Finishing sign-in&hellip;</h1>
+<p id="msg">You can close this tab once the next page confirms.</p>
+<script>
+  var target = "http://localhost:47811/callback" + window.location.search;
+  if (window.location.search) {
+    window.location.replace(target);
+    document.getElementById("msg").innerHTML =
+      'If nothing happens, <a href="' + target.replace(/"/g, "%22") + '">continue here</a>.';
+  } else {
+    document.getElementById("msg").textContent = "Nothing to do here.";
+  }
+</script>
+</body>
+</html>
